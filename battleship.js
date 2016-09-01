@@ -6,6 +6,7 @@ var squareSize = 50;
 var letterArray = ["A","B","C","D","E","F","G","H","I","J"];
 var letter;
 
+var fireLocation;
 // gets the container element
 var gameBoardContainer = document.getElementById("gameboard");
 
@@ -41,9 +42,7 @@ for (i = 0; i < cols; i++) {
 
     square.textContent += i+1;
 
-		for (letter = 0; letter < letterArray.length; letter++) {
-			j += letterArray[rows] + letter; 
-		}
+		square.textContent = letterArray[j] + (i + 1);
 
 
 		// set each grid square's coordinates: multiples of the current row or column number
@@ -70,8 +69,16 @@ var gameBoard = [
 				[1,0,0,0,0,0,0,0,0,0]
 				]
 
+				function name()
+{
+var input = document.getElementById("userInput");
+alert(input);
+}
+
 function fireTorpedo() {
 
 	// Your game logic will go here!
-
+	fireLocation = document.getElementById("textBox").value;
+	console.log(fireLocation);
+  document.getElementById("textBox").value = null;
 }
