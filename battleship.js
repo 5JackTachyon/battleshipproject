@@ -89,8 +89,12 @@ function fireTorpedo() {
 	}
 	else if(gameBoard[letterPlace][number] == 1 && document.getElementById("s"+[letterPlace]+number).style.backgroundColor != "red"){
 	 document.getElementById("s"+[letterPlace]+number).style.backgroundColor = "red";
+	 hits++;
 	}
-
   document.getElementById("textBox").value = null;
+
+if(hits = 17) {
+	gameBoardContainer.textContent = "The Fleet Has Been Neutralized, You Did It!"
+}
 
 }
