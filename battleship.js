@@ -5,8 +5,11 @@ var squareSize = 50;
 
 var letterArray = ["A","B","C","D","E","F","G","H","I","J"];
 var letter;
+var number;
 
-var fireLocation;
+var fireCoordinate;
+
+var letterPlace;
 // gets the container element
 var gameBoardContainer = document.getElementById("gameboard");
 
@@ -71,32 +74,23 @@ var gameBoard = [
 
 
 
-				var subButton = document.getElementById('subButton');
-				subButton.addEventListener('click', getUserName, false); 
-
-
-				function getUserName() {
-				var nameField = document.getElementById('nameField').value;
-				var result = document.getElementById('result');
-
-				if (nameField.length < 3) {
-				    result.textContent = 'Username must contain at least 3 characters';
-				    //alert('Username must contain at least 3 characters');
-				} else {
-				    result.textContent = 'Your username is: ' + nameField;
-				    //alert(nameField);
-				}
-				}
-
-
-
-
 
 
 function fireTorpedo() {
 
 	// Your game logic will go here!
-	fireLocation = document.getElementById("textBox").value;
-	console.log(fireLocation);
+	fireCoordinate = document.getElementById("textBox").value;
+	console.log(fireCoordinate);
+	letter = fireCoordinate.substring(0,1);
+	number = fireCoordinate.substring(1,3) - 1;
+	letterPlace = letterConversion[letter];
+	if(gameBoard[letterPlace][number] == 0) {
+		document.getElementById("s"+[letterPlace]+number).style.backgroundColor = "blue";
+	}
+	else if(gameBoard[letterPlace][number] == 1 && document.getElementById("s"+[letterPlace]+number).style.backgroundColor != "red"){
+	 document.getElementById("s"+[letterPlace]+number).style.backgroundColor = "red";
+	}
+
   document.getElementById("textBox").value = null;
+
 }
