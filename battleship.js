@@ -6,7 +6,8 @@ var squareSize = 50;
 var letterArray = ["A","B","C","D","E","F","G","H","I","J"];
 var letter;
 var number;
-
+var hits = 0;
+var hitCount = 16;
 var fireCoordinate;
 
 var letterPlace;
@@ -86,14 +87,21 @@ function fireTorpedo() {
 	letterPlace = letterConversion[letter];
 	if(gameBoard[letterPlace][number] == 0) {
 		document.getElementById("s"+[letterPlace]+number).style.backgroundColor = "blue";
+		 document.getElementById("hit").textContent = "Miss!";
 	}
 	else if(gameBoard[letterPlace][number] == 1 && document.getElementById("s"+[letterPlace]+number).style.backgroundColor != "red"){
 	 document.getElementById("s"+[letterPlace]+number).style.backgroundColor = "red";
+	 document.getElementById("count").textContent = hitCount + " hits left";
+	 document.getElementById("hit").textContent = "Hit!";
 	 hits++;
+	 hitCount--;
+	 console.log(hits);
 	}
-  document.getElementById("textBox").value = null;
 
-if(hits = 17) {
+
+document.getElementById("count");
+document.getElementById("textBox").value = null;
+if(hits == 17) {
 	gameBoardContainer.textContent = "The Fleet Has Been Neutralized, You Did It!"
 }
 
