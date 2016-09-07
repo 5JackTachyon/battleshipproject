@@ -9,6 +9,7 @@ var number;
 var hits = 0;
 var hitCount = 16;
 var fireCoordinate;
+var inputCoordinate;
 
 var letterPlace;
 // gets the container element
@@ -73,9 +74,12 @@ var gameBoard = [
 				[1,0,0,0,0,0,0,0,0,0]
 				]
 
-
-
-
+function inputShip() {
+	inputCoordinate = document.getElementById("inputBox").value;
+	letter = inputCoordinate.substring(0,1);
+	number = inputCoordinate.substring(1,3) - 1;
+	letterPlace = letterConversion[letter];
+}
 
 function fireTorpedo() {
 
