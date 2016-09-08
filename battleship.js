@@ -80,7 +80,7 @@ function inputShip() {
 	number = inputCoordinate.substring(1,3) - 1;
 	letterPlace = letterConversion[letter];
 	if(gameboard[letterPlace][number] == 0) {
-		document.getElementById("s"+[letterPlace]+number) = 1;
+		gameboard[letterPlace][number] = 1;
 	}
 }
 
