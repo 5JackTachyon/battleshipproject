@@ -114,3 +114,65 @@ if(hits == 17) {
 }
 
 }
+
+
+
+
+
+
+
+
+
+var gameBoarder = [
+				[0,0,0,1,1,1,1,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,0,0,0,0],
+				[0,0,0,0,0,0,1,0,0,0],
+				[0,0,0,0,0,0,1,0,0,0],
+				[1,0,0,0,0,0,1,1,1,1],
+				[1,0,0,0,0,0,0,0,0,0],
+				[1,0,0,1,0,0,0,0,0,0],
+				[1,0,0,1,0,0,0,0,0,0],
+				[1,0,0,0,0,0,0,0,0,0]
+				]
+
+function inputShiper() {
+	inputCoordinate = document.getElementById("inputBox").value;
+	letter = inputCoordinate.substring(0,1);
+	number = inputCoordinate.substring(1,3) - 1;
+	letterPlace = letterConversion[letter];
+	if(gameBoarder[letterPlace][number] == 0) {
+		gameBoarder[letterPlace][number] = 1;
+	}
+}
+
+function fireTorpedoer() {
+
+	// Your game logic will go here!
+	fireCoordinate = document.getElementById("textBox").value;
+	console.log(fireCoordinate);
+	letter = fireCoordinate.substring(0,1);
+	number = fireCoordinate.substring(1,3) - 1;
+	letterPlace = letterConversion[letter];
+	if(gameBoarder[letterPlace][number] == 0) {
+		document.getElementById("s"+[letterPlace]+number).style.backgroundColor = "blue";
+		 document.getElementById("hit").textContent = "Miss!";
+	}
+	else if(gameBoarder[letterPlace][number] == 1 && document.getElementById("s"+[letterPlace]+number).style.backgroundColor != "red"){
+	 document.getElementById("s"+[letterPlace]+number).style.backgroundColor = "red";
+	 document.getElementById("count").textContent = hitCount + " hits left";
+	 document.getElementById("hit").textContent = "Hit!";
+	 hits++;
+	 hitCount--;
+	 console.log(hits);
+	}
+
+
+document.getElementById("count");
+document.getElementById("textBox").value = null;
+if(hits == 17) {
+	gameBoardContainer.textContent = "The Fleet Has Been Neutralized, You Did It!"
+
+}
+
+}
