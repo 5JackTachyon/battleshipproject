@@ -79,6 +79,9 @@ function inputShip() {
 	letter = inputCoordinate.substring(0,1);
 	number = inputCoordinate.substring(1,3) - 1;
 	letterPlace = letterConversion[letter];
+	if(gameboard[letterPlace][number] == 0) {
+		document.getElementById("s"+[letterPlace]+number) == 1;
+	}
 }
 
 function fireTorpedo() {
