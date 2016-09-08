@@ -14,7 +14,7 @@ var inputCoordinate;
 var letterPlace;
 // gets the container element
 var gameBoardContainer = document.getElementById("gameboard");
-
+var gameBoardContainerer = document.getElementById("gameboarder");
 
 // you can use this to convert your letters into numbers for use
 // with the 2D array
@@ -39,17 +39,23 @@ for (i = 0; i < cols; i++) {
 		var square = document.createElement("div");
 		gameBoardContainer.appendChild(square);
 
+		var squarer = document.createElement("div");
+		gameBoardContainerer.appendChild(square);
     // give each div element a unique id based on its row and column, like "s00"
 		square.id = 's' + j + i;
 		square.className = "boardSquare";
 
+		squarer.id = 's' + j + i;
+		squarer.className = "boardSquare";
 		// THIS IS WHERE YOU WILL ADD CODE FOR PART 1 TO ADD TEXT TO EACH SQUARE
 
     square.textContent += i+1;
 
 		square.textContent = letterArray[j] + (i + 1);
 
+		squarer.textContent += i+1;
 
+		squarer.textContent = letterArray[j] + (i + 1);
 		// set each grid square's coordinates: multiples of the current row or column number
 		var topPosition = j * squareSize;
 		var leftPosition = i * squareSize;
@@ -57,6 +63,9 @@ for (i = 0; i < cols; i++) {
 		// use CSS absolute positioning to place each grid square on the page
 		square.style.top = topPosition + 'px';
 		square.style.left = leftPosition + 'px';
+
+		squarer.style.top = topPosition + 'px';
+		squarer.style.left = leftPosition + 'px';
 	}
 }
 
