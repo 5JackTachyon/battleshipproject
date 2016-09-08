@@ -79,8 +79,8 @@ function inputShip() {
 	letter = inputCoordinate.substring(0,1);
 	number = inputCoordinate.substring(1,3) - 1;
 	letterPlace = letterConversion[letter];
-	if(gameboard[letterPlace][number] == 0) {
-		gameboard[letterPlace][number] = 1;
+	if(gameBoard[letterPlace][number] == 0) {
+		gameBoard[letterPlace][number] = 1;
 	}
 }
 
@@ -110,6 +110,7 @@ document.getElementById("count");
 document.getElementById("textBox").value = null;
 if(hits == 17) {
 	gameBoardContainer.textContent = "The Fleet Has Been Neutralized, You Did It!"
+
 }
 
 }
