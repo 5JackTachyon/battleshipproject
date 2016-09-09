@@ -189,7 +189,7 @@ var gameBoarder = [
 				]
 
 function inputShiper() {
-	inputCoordinate = document.getElementById("inputBox").value;
+	inputCoordinate = document.getElementById("inputBoxer").value;
 	letter = inputCoordinate.substring(0,1);
 	number = inputCoordinate.substring(1,3) - 1;
 	letterPlace = letterConversion[letter];
@@ -201,7 +201,7 @@ function inputShiper() {
 function fireTorpedoer() {
 
 	// Your game logic will go here!
-	fireCoordinate = document.getElementById("textBox").value;
+	fireCoordinate = document.getElementById("textBoxer").value;
 	console.log(fireCoordinate);
 	letter = fireCoordinate.substring(0,1);
 	number = fireCoordinate.substring(1,3) - 1;
