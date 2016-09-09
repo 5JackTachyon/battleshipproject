@@ -3,7 +3,10 @@ var rows = 10;
 var cols = 10;
 var squareSize = 50;
 
+var squareSizer = 50;
+
 var letterArray = ["A","B","C","D","E","F","G","H","I","J"];
+var letterArrayer = ["A","B","C","D","E","F","G","H","I","J"];
 var letter;
 var number;
 var hits = 0;
@@ -14,8 +17,8 @@ var inputCoordinate;
 var letterPlace;
 // gets the container element
 var gameBoardContainer = document.getElementById("gameboard");
-var gameBoardContainerer = document.getElementById("gameboarder");
 
+var gameBoardContainerer = document.getElementById("gameboarder");
 // you can use this to convert your letters into numbers for use
 // with the 2D array
 var letterConversion = {
@@ -38,18 +41,16 @@ for (i = 0; i < cols; i++) {
 		// creates a new div HTML element for each grid square and makes it the right size
 		var square = document.createElement("div");
 		gameBoardContainer.appendChild(square);
-    gameBoardContainer.appendChild(square);
+
     // give each div element a unique id based on its row and column, like "s00"
 		square.id = 's' + j + i;
 		square.className = "boardSquare";
-
 
 		// THIS IS WHERE YOU WILL ADD CODE FOR PART 1 TO ADD TEXT TO EACH SQUARE
 
     square.textContent += i+1;
 
 		square.textContent = letterArray[j] + (i + 1);
-
 
 		// set each grid square's coordinates: multiples of the current row or column number
 		var topPosition = j * squareSize;
@@ -59,9 +60,53 @@ for (i = 0; i < cols; i++) {
 		square.style.top = topPosition + 'px';
 		square.style.left = leftPosition + 'px';
 
-	
+
 	}
 }
+
+
+
+
+
+
+
+// makes the grid columns and rows
+for (i = 0; i < cols; i++) {
+	for (j = 0; j < rows; j++) {
+
+		// creates a new div HTML element for each grid square and makes it the right size
+
+
+		var squarer = document.createElement("div");
+		gameBoardContainer.appendChild(squarer);
+    // give each div element a unique id based on its row and column, like "s00"
+
+
+		squarer.id = 's' + j + i;
+		squarer.className = "boardSquarer";
+		// THIS IS WHERE YOU WILL ADD CODE FOR PART 1 TO ADD TEXT TO EACH SQUARE
+
+
+		squarer.textContent += i+1;
+
+		squarer.textContent = letterArrayer[j] + (i + 1);
+		// set each grid square's coordinates: multiples of the current row or column number
+
+		var topPositioner = j * squareSizer;
+		var leftPositioner = i * squareSizer;
+		// use CSS absolute positioning to place each grid square on the page
+
+		squarer.style.top = topPositioner + 'px';
+		squarer.style.left = leftPositioner + 'px';
+	}
+}
+
+
+
+
+
+
+
 
 // Hardcoded 2D array to indicate where the ships are placed
 var gameBoard = [
