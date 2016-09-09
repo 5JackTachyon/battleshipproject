@@ -3,7 +3,10 @@ var rows = 10;
 var cols = 10;
 var squareSize = 50;
 
+var rowser = 10;
+var colser = 10;
 var squareSizer = 50;
+var pixeler = 900;
 
 var letterArray = ["A","B","C","D","E","F","G","H","I","J"];
 var letterArrayer = ["A","B","C","D","E","F","G","H","I","J"];
@@ -71,8 +74,8 @@ for (i = 0; i < cols; i++) {
 
 
 // makes the grid columns and rows
-for (i = 0; i < cols; i++) {
-	for (j = 0; j < rows; j++) {
+for (k = 0; k < colser; k++) {
+	for (l = 0; l < rowser; l++) {
 
 		// creates a new div HTML element for each grid square and makes it the right size
 
@@ -82,22 +85,23 @@ for (i = 0; i < cols; i++) {
     // give each div element a unique id based on its row and column, like "s00"
 
 
-		squarer.id = 's' + j + i;
+		squarer.id = 's' + l + k;
 		squarer.className = "boardSquarer";
 		// THIS IS WHERE YOU WILL ADD CODE FOR PART 1 TO ADD TEXT TO EACH SQUARE
 
 
-		squarer.textContent += i+1;
+		squarer.textContent += k+1;
 
-		squarer.textContent = letterArrayer[j] + (i + 1);
+		squarer.textContent = letterArrayer[l] + (k + 1);
 		// set each grid square's coordinates: multiples of the current row or column number
 
-		var topPositioner = j * squareSizer;
-		var leftPositioner = i * squareSizer;
+		var topPositioner = l * squareSizer + pixeler;
+		var leftPositioner = k * squareSizer;
 		// use CSS absolute positioning to place each grid square on the page
 
 		squarer.style.top = topPositioner + 'px';
 		squarer.style.left = leftPositioner + 'px';
+		console.log(squarer);
 	}
 }
 
