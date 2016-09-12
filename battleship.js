@@ -12,10 +12,16 @@ var letterArray = ["A","B","C","D","E","F","G","H","I","J"];
 var letterArrayer = ["A","B","C","D","E","F","G","H","I","J"];
 var letter;
 var number;
+var letterer;
+var numberer;
 var hits = 0;
 var hitCount = 16;
+var hitser = 0;
+var hitCounter = 16;
 var fireCoordinate;
 var inputCoordinate;
+var fireCoordinater;
+var inputCoordinater;
 
 var letterPlace;
 // gets the container element
@@ -25,6 +31,19 @@ var gameBoardContainerer = document.getElementById("gameboarder");
 // you can use this to convert your letters into numbers for use
 // with the 2D array
 var letterConversion = {
+	"A": 0,
+	"B": 1,
+	"C": 2,
+	"D": 3,
+	"E": 4,
+	"F": 5,
+	"G": 6,
+	"H": 7,
+	"I": 8,
+	"J": 9
+}
+
+var letterConversioner = {
 	"A": 0,
 	"B": 1,
 	"C": 2,
@@ -143,7 +162,7 @@ function fireTorpedo() {
 	console.log(fireCoordinate);
 	letter = fireCoordinate.substring(0,1);
 	number = fireCoordinate.substring(1,3) - 1;
-	letterPlace = letterConversion[letter];
+	letterPlacer = letterConversion[letter];
 	if(gameBoard[letterPlace][number] == 0) {
 		document.getElementById("s"+[letterPlace]+number).style.backgroundColor = "blue";
 		 document.getElementById("hit").textContent = "Miss!";
@@ -189,41 +208,41 @@ var gameBoarder = [
 				]
 
 function inputShiper() {
-	inputCoordinate = document.getElementById("inputBoxer").value;
-	letter = inputCoordinate.substring(0,1);
-	number = inputCoordinate.substring(1,3) - 1;
-	letterPlace = letterConversion[letter];
-	if(gameBoarder[letterPlace][number] == 0) {
-		gameBoarder[letterPlace][number] = 1;
+	inputCoordinater = document.getElementById("inputBoxer").value;
+	letterer = inputCoordinater.substring(0,1);
+	numberer = inputCoordinater.substring(1,3) - 1;
+	letterPlacer = letterConversioner[letterer];
+	if(gameBoarder[letterPlacer][numberer] == 0) {
+		gameBoarder[letterPlacer][numberer] = 1;
 	}
 }
 
 function fireTorpedoer() {
 
 	// Your game logic will go here!
-	fireCoordinate = document.getElementById("textBoxer").value;
-	console.log(fireCoordinate);
-	letter = fireCoordinate.substring(0,1);
-	number = fireCoordinate.substring(1,3) - 1;
-	letterPlace = letterConversion[letter];
-	if(gameBoarder[letterPlace][number] == 0) {
-		document.getElementById("s"+[letterPlace]+number).style.backgroundColor = "blue";
-		 document.getElementById("hit").textContent = "Miss!";
+	fireCoordinater = document.getElementById("textBoxer").value;
+	console.log(fireCoordinater);
+	letterer = fireCoordinater.substring(0,1);
+	numberer = fireCoordinater.substring(1,3) - 1;
+	letterPlacer = letterConversioner[letterer];
+	if(gameBoarder[letterPlacer][numberer] == 0) {
+		document.getElementById("s"+[letterPlacer]+numberer).style.backgroundColor = "blue";
+		 document.getElementById("hiter").textContent = "Miss!";
 	}
-	else if(gameBoarder[letterPlace][number] == 1 && document.getElementById("s"+[letterPlace]+number).style.backgroundColor != "red"){
-	 document.getElementById("s"+[letterPlace]+number).style.backgroundColor = "red";
-	 document.getElementById("count").textContent = hitCount + " hits left";
-	 document.getElementById("hit").textContent = "Hit!";
-	 hits++;
-	 hitCount--;
-	 console.log(hits);
+	else if(gameBoarder[letterPlacer][numberer] == 1 && document.getElementById("s"+[letterPlacer]+numberer).style.backgroundColor != "red"){
+	 document.getElementById("s"+[letterPlacer]+numberer).style.backgroundColor = "red";
+	 document.getElementById("counter").textContent = hitCounter + " hits left";
+	 document.getElementById("hiter").textContent = "Hit!";
+	 hitser++;
+	 hitCounter--;
+	 console.log(hitser);
 	}
 
 
-document.getElementById("count");
-document.getElementById("textBox").value = null;
-if(hits == 17) {
-	gameBoardContainer.textContent = "The Fleet Has Been Neutralized, You Did It!"
+document.getElementById("counter");
+document.getElementById("textBoxer").value = null;
+if(hitser == 17) {
+	gameBoardContainerer.textContent = "The Fleet Has Been Neutralized, You Did It!"
 
 }
 
